@@ -1,0 +1,44 @@
+.code
+{
+    border: 1px solid black;
+    padding: 10px;
+    font-family: consolas;
+    font-size: 14px;
+}
+
+.code >*
+{
+    display: inline;
+}
+
+obj
+{
+    color: green;
+}
+
+function
+{
+    color: black;
+}
+
+function-def
+{
+    color: purple;
+}
+
+var
+{
+    font-style: normal;
+    color: dodgerblue;
+}
+
+string
+{
+    color: orangered;
+}
+
+comment
+{
+    font-style: italic;
+    color: gray;
+}

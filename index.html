@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</head>
+<body class="text-center" style="text-align: center;">
+    <h1>About.js</h1>
+    <hr>
+    <b>About.js</b> é uma bibloteca (Javascript) para obter dados do usuário, tais como: Navegador, Sistema Operacional, endereço de IP, localização (via ip), etc...<br>
+    É suportada pela maioria dos navegadores e é simples de usar: <br>
+    <div class="text-center" style="width: 100%; text-align: center;">
+
+    <div style="text-align: left; display: inline-block; float: none;" class="code">
+        <var>var</var> <obj>about</obj> = <function>About</function>();<br>
+        <obj>window</obj>.<function>setTimeout</function>(<function-def>function</function-def>(){<br>
+            <obj>console</obj>.<function>log</function>(<obj>about</obj>);<br>
+        }, <string>2000</string>); <comment>// 2 segundos de tempo para receber os dados</comment>
+    </div>
+
+    </div>
+    <pre>
+        <br>
+        <div style="text-align: left; display: inline-block; float: none;" class="code" id="data">
+            Loading data ...
+        </div>
+    </pre>
+    <script>
+        String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+    var about = About();
+    window.setTimeout(function(){
+        console.log(about);
+        var html = JSON.stringify(about);
+        html = html
+        .replaceAll('{', '{\n')
+        .replaceAll('}', '\n}')
+        .replaceAll(',', ',\n')
+        .replaceAll('\n','<br>');
+        $("#data").html(html);
+    }, 2000); // 2 segundos de tempo para receber os dados
+    </script>
+</body>
+</html>
